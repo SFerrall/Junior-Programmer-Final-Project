@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 100.0f;
     float turnSpeed = 100.0f;
     public GameObject bullet;
+    public TextMeshProUGUI scoreboard;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +21,11 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Turn();
-        if(Input.GetKeyDown(KeyCode.Q))
+        if(Input.GetKeyDown(KeyCode.Space))
         {
             Shoot();
         }
+        UpdateScore();
     }
 
     private void Move()
@@ -42,5 +46,14 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    
+    public void UpdateScore()
+    {
+            scoreboard.text = "Zombie Killz: " + InstanceManager.gameInstance.score;
+    }
+
+    public void ExitGame()
+    {
+        Destroy(GameObject.Find("GameInstance"));
+        SceneManager.LoadScene(0);
+    }
 }

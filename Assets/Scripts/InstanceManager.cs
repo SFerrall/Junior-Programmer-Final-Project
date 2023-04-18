@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+
 
 public class InstanceManager : MonoBehaviour
 {
     public static InstanceManager gameInstance { get; private set; }
     public int score;
+    public TextMeshProUGUI scoreboard;
 
     private void Awake()
     {
@@ -14,6 +17,7 @@ public class InstanceManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        Time.timeScale = 1;
         score = 0;
         gameInstance = this;
         DontDestroyOnLoad(gameObject);
@@ -34,4 +38,6 @@ public class InstanceManager : MonoBehaviour
     {
         SceneManager.LoadScene(1);
     }
+
+    
 }

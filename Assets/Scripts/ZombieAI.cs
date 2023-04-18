@@ -22,4 +22,14 @@ public class ZombieAI : MonoBehaviour
     {
         transform.position = Vector3.MoveTowards(transform.position, playerTarget.transform.position, moveSpeed * Time.deltaTime);
     }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.name == "Player")
+        {
+            Time.timeScale = 0;
+
+           
+        }
+    }
 }
