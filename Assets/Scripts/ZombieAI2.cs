@@ -18,6 +18,6 @@ public class ZombieAI2 : ZombieAI
     // Update is called once per frame
     void Update()
     {
-        
+        EnemyMove();
     }
 }
