@@ -18,7 +18,7 @@ public class ZombieAI : MonoBehaviour
         EnemyMove();
     }
 
-    private void EnemyMove()
+    public virtual void EnemyMove()
     {
         transform.position = Vector3.MoveTowards(transform.position, playerTarget.transform.position, moveSpeed * Time.deltaTime);
     }

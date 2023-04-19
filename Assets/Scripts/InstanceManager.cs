@@ -7,6 +7,7 @@ using TMPro;
 
 public class InstanceManager : MonoBehaviour
 {
+    //ENCAPSULATION
     public static InstanceManager gameInstance { get; private set; }
     public int score;
     public TextMeshProUGUI scoreboard;
@@ -33,7 +34,7 @@ public class InstanceManager : MonoBehaviour
     {
         
     }
-
+    //ABSTRACTION
     public void StartGame()
     {
         SceneManager.LoadScene(1);
